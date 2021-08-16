@@ -354,7 +354,7 @@ async def on_command_error(ctx, error):
     else:
         print(errstr)
 
-client.run('NDQ5NDU1NDYzNDIwMDAyMzE1.WweqBA.__hjPwiC1jLO8v7dotbmggMz_sw') #토큰
+client.run('토큰번호') #토큰
 
 conn.commit()
 conn.close()
