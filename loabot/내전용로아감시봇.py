@@ -91,21 +91,6 @@ async def online(ctx):
         msg = await client.wait_for("message", check=check)
         charaOwner = msg.content
 
-        if(charaOwner == "이종훈" or charaOwner == "종훈" or charaOwner == "계탕" or charaOwner == "리종훈" or charaOwner == "잊후운"):
-            charaOwner = "이종훈"
-        elif(charaOwner == "윤" or charaOwner == "선우" or charaOwner == "로아" or charaOwner == "윤선우" or charaOwner == "윤ㅅ너우"):
-            charaOwner = "윤선우"
-        elif (charaOwner == "임정현" or charaOwner == "버버섯" or charaOwner == "정현" or charaOwner == "임저녀ㅎ"):
-            charaOwner = "임정현"
-        elif (charaOwner == "자크맨" or charaOwner == "자크" or charaOwner == "최형주" or charaOwner == "형주" or charaOwner == "형듀"):
-            charaOwner = "최형주"
-        elif (charaOwner == "조광연" or charaOwner == "조씨" or charaOwner == "조랭이" or charaOwner == "광연" or charaOwner == "조"):
-            charaOwner = "조광연"
-        else:
-            embed = discord.Embed(title="그 사람은 로스트아크를 안합니다", color=0xFF1493)
-            await ctx.send(embed=embed)
-            return
-
         embed = discord.Embed(title=charaOwner + "의 " + charaName, color=0xFF1493)
         await ctx.send(embed=embed)
         list.append(charaName)
@@ -219,7 +204,7 @@ async def online(ctx):
         cursor.execute(sql, charaName)
 
         if len(result) == 0:
-            embed = discord.Embed(title="없는걸 입력했거나 오만타입니다.", color=0xFF1493)
+            embed = discord.Embed(title="없는걸 입력했거나 오타입니다.", color=0xFF1493)
             await ctx.send(embed=embed)
             return
 
@@ -357,30 +342,6 @@ async def online(ctx):
     await ctx.send(embed=embed)
     conn.commit()
 
-###############################################################################
-
-@client.command(name='롤')
-@commands.is_owner()
-async def online(ctx):
-    embed = discord.Embed(title="현재 모인 인원", color=0x4432a8)
-    embed.add_field(name="최형주", value="-----", inline=False)
-    embed.add_field(name="안도훈", value="-----", inline=False)
-    embed.add_field(name="이종훈", value="-----", inline=False)
-    # embed.add_field(name="오성욱", value="-----", inline=False)
-    await ctx.send(embed=embed)
-
-###############################################################################
-
-@client.command(name='감지')
-@commands.is_owner()
-async def online(ctx):
-    embed = discord.Embed(title="로스트아크 접속중인 인원", color=0x4432a8)
-    embed.add_field(name="임정현", value="-----", inline=False)
-    embed.add_field(name="이종훈", value="-----", inline=False)
-    embed.add_field(name="최형주", value="-----", inline=False)
-    # embed.add_field(name="오성욱", value="-----", inline=False)
-    await ctx.send(embed=embed)
-
 
 @client.event
 async def on_command_error(ctx, error):
@@ -392,7 +353,7 @@ async def on_command_error(ctx, error):
     else:
         print(errstr)
 
-client.run('NDQ5NDU1NDYzNDIwMDAyMzE1.WweqBA.__hjPwiC1jLO8v7dotbmggMz_sw') #토큰
+client.run('토큰번호') #토큰
 
 conn.commit()
 conn.close()
